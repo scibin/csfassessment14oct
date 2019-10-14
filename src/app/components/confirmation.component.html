@@ -1,0 +1,53 @@
+<h3>Thank you for registering!</h3>
+
+<span>Your registration details:</span>
+<br><br>
+
+<div class='name'>
+    <span>Your name: </span>
+    <span>{{ formData.name }}</span>
+</div>
+<br>
+
+<div class='email'>
+    <span>Your email: </span>
+    <span>{{ formData.email }}</span>
+</div>
+<br>
+
+<div class='gender'>
+    <span>Your gender: </span>
+    <span>{{ formData.gender }}</span>
+</div>
+<br>
+
+<div class='dateOfBirth'>
+    <span>Your date of birth: </span>
+    <span>{{ formData.dateOfBirth.format('MMMM Do YYYY') }}</span>
+</div>
+<br>
+
+<div class='country'>
+    <span>Your country: </span>
+    <span>{{ formData.country }}</span>
+</div>
+<br>
+
+<div class='address'>
+    <span>Your address: </span>
+    <span>{{ formData.address }}</span>
+</div>
+<br>
+
+<div class='contactNumber'>
+    <span>Your contact number: </span>
+    <span>{{ formData.contactNumber }}</span>
+</div>
+<br>
+
+<div class='backButton' fxLayout="row"  fxLayoutAlign="start center">
+    <button mat-icon-button aria-label="backButton" (click)="back()">
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span>Register another user</span>
+    </button>
+</div>

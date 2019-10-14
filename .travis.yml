@@ -21,6 +21,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/csfassessment14oct
+  local_dir: dist/csfassessmentwithcss
   on:
     branch: master

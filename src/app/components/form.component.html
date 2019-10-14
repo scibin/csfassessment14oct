@@ -1,130 +1,162 @@
 <form #form="ngForm" (ngSubmit)="submitForm(form)">
 
-    <label for='email'>Email: </label>
-    <mat-form-field class='email'>
-        <input matInput name='email' #email="ngModel"
-        ngModel required email>
-        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
-            <div class="errMsg" *ngIf="email.errors['required']">
-                <span>Please fill in your email!</span>
-            </div>
-            <div class="errMsg" *ngIf="email.errors['email']">
-                <span>Please fill in a valid email!</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+    <table class="table table-borderless container">
+        <tbody>
+            <tr>  
+                <label for='email'>Email: </label>
+            </tr>
+            <tr>
+                <mat-form-field class='email'>
+                    <input matInput name='email' #email="ngModel"
+                    ngModel required email>
+                    <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="errMsg" *ngIf="email.errors['required']">
+                            <span>Please fill in your email!</span>
+                        </div>
+                        <div class="errMsg" *ngIf="email.errors['email']">
+                            <span>Please fill in a valid email!</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <label for='password'>Password: </label>
-    <mat-form-field class='password'>
-        <input matInput name='password' #password="ngModel"
-        type='password' ngModel required
-        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#\$]).{8,}">
-        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
-            <div class="errMsg" *ngIf="password.errors['required']">
-                <span>Please fill in your password!</span>
-            </div>
-            <div class="errMsg" *ngIf="password.errors['pattern']">
-                <span>Your password must be at least 8 characters long,
-                    use both uppercase and lowercase letters,
-                    include one or more numerical digits,
-                    and include one of these special characters: @, #, $
-                </span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='password'>Password: </label>
+            </tr>
+            <tr>
+                <mat-form-field class='password'>
+                    <input matInput name='password' #password="ngModel"
+                    type='password' ngModel required
+                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#\$]).{8,}">
+                    <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div class="errMsg" *ngIf="password.errors['required']">
+                            <span>Please fill in your password!</span>
+                        </div>
+                        <div class="errMsg" *ngIf="password.errors['pattern']">
+                            <span>Your password must be at least 8 characters long,
+                                use both uppercase and lowercase letters,
+                                include one or more numerical digits,
+                                and include one of these special characters: @, #, $
+                            </span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <!-- Accepts only alphabets with spaces. Does not accept inputs with only spaces or periods -->
-    <label for='name'>Name: </label>
-    <mat-form-field class="name">
-        <input matInput name='name' #name="ngModel" 
-        ngModel required
-        pattern="(?![\s.]+$)[a-zA-z\s]*">
-        <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-            <div class="errMsg" *ngIf="name.errors['required']">
-                <span>Please fill in your name!</span>
-            </div>
-            <div class="errMsg" *ngIf="name.errors['pattern']">
-                <span>Please fill in a valid name (alphabets and spaces only)!</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='name'>Name: </label>
+            </tr>
+            <tr>
+                <!-- Accepts only alphabets with spaces. Does not accept inputs with only spaces or periods -->
+                <mat-form-field class="name">
+                    <input matInput name='name' #name="ngModel" 
+                    ngModel required
+                    pattern="(?![\s.]+$)[a-zA-z\s]*">
+                    <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="errMsg" *ngIf="name.errors['required']">
+                            <span>Please fill in your name!</span>
+                        </div>
+                        <div class="errMsg" *ngIf="name.errors['pattern']">
+                            <span>Please fill in a valid name (alphabets and spaces only)!</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <label for='gender'>Gender: </label>
-    <mat-radio-group ngModel required #gender="ngModel" name="gender">
-        <mat-radio-button value='Male'> Male</mat-radio-button>
-        <mat-radio-button value='Female'> Female</mat-radio-button>
-        <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
-            <div class="errMsg" *ngIf="gender.errors['required']">
-                <span>Please select a gender!</span>
-            </div>
-        </mat-error>
-    </mat-radio-group>
-    <br><br>
+            <tr>
+                <label for='gender'>Gender: </label>
+            </tr>
+            <tr>
+                <div class='genderbuttons'>
+                <mat-radio-group ngModel required #gender="ngModel" name="gender">
+                    <mat-radio-button value='Male' class='malebutton'> Male</mat-radio-button>
+                    <mat-radio-button value='Female'> Female</mat-radio-button>
+                    <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+                        <div class="errMsg" *ngIf="gender.errors['required']">
+                            <span>Please select a gender!</span>
+                        </div>
+                    </mat-error>
+                </mat-radio-group>
+                </div>
+            </tr>
 
-    <label for='dateOfBirth'>Date of birth: </label>
-    <mat-form-field class="dateOfBirth">
-        <input matInput [max]='maxDate'
-        [matDatepicker]="picker1" placeholder="Choose a date"
-        name='dateOfBirth' ngModel required #dateOfBirth="ngModel">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-        <mat-error *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)">
-            <div class="errMsg" *ngIf="dateOfBirth.errors['matDatepickerMax']">
-                <span>You must be more than 18 years old to register an account!</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='dateOfBirth'>Date of birth: </label>
+            </tr>
+            <tr>
+                <mat-form-field class="dateOfBirth">
+                    <input matInput [max]='maxDate'
+                    [matDatepicker]="picker1" placeholder="Choose a date"
+                    name='dateOfBirth' ngModel required #dateOfBirth="ngModel">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-error *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)">
+                        <div class="errMsg" *ngIf="dateOfBirth.errors['matDatepickerMax']">
+                            <span>You must be more than 18 years old to register an account!</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <label for='address'>Address: </label>
-    <mat-form-field class="address">
-        <input matInput name='address' #address="ngModel" 
-        ngModel required>
-        <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
-            <div class="errMsg" *ngIf="address.errors['required']">
-                <span>Please fill in your address!</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='address'>Address: </label>
+            </tr>
+            <tr>
+                <mat-form-field class="address">
+                    <input matInput name='address' #address="ngModel" 
+                    ngModel required>
+                    <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                        <div class="errMsg" *ngIf="address.errors['required']">
+                            <span>Please fill in your address!</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <label for='country'>Country: </label>
-    <mat-form-field class="country">
-        <mat-label>Select your country</mat-label>
-        <mat-select ngModel name='country' required #country="ngModel">
-          <mat-option *ngFor="let countries of countryList; let i = index;" [value]="countries.name">
-            {{ countries.name }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="country.invalid && (country.dirty || country.touched)">
-            <div class="errMsg" *ngIf="country.errors['required']">
-                <span>Please select your country!</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='country'>Country: </label>
+            </tr>
+            <tr>
+                <mat-form-field class="country">
+                    <mat-label>Select your country</mat-label>
+                    <mat-select ngModel name='country' required #country="ngModel">
+                        <mat-option *ngFor="let countries of countryList; let i = index;" [value]="countries.name">
+                        {{ countries.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="country.invalid && (country.dirty || country.touched)">
+                        <div class="errMsg" *ngIf="country.errors['required']">
+                            <span>Please select your country!</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
 
-    <label for='contactNumber'>Contact number: </label>
-    <mat-form-field class="contactNumber">
-        <input matInput name='contactNumber' #contactNumber="ngModel" 
-        ngModel required
-        pattern="(?=.*[0-9])[- +()0-9]+">
-        <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
-            <div class="errMsg" *ngIf="contactNumber.errors['required']">
-                <span>Please fill in your contact number!</span>
-            </div>
-            <div class="errMsg" *ngIf="contactNumber.errors['pattern']">
-                <span>Only numeric numbers, plus sign, dashes, spaces and round brackets are allowed! 
-                    e.g. (+123) 123-456-789</span>
-            </div>
-        </mat-error>
-    </mat-form-field>
-    <br><br>
+            <tr>
+                <label for='contactNumber'>Contact number: </label>
+            </tr>
+            <tr>
+                <mat-form-field class="contactNumber">
+                    <input matInput name='contactNumber' #contactNumber="ngModel" 
+                    ngModel required
+                    pattern="(?=.*[0-9])[- +()0-9]+">
+                    <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
+                        <div class="errMsg" *ngIf="contactNumber.errors['required']">
+                            <span>Please fill in your contact number!</span>
+                        </div>
+                        <div class="errMsg" *ngIf="contactNumber.errors['pattern']">
+                            <span>Only numeric numbers, plus sign, dashes, spaces and round brackets are allowed! 
+                                e.g. (+123) 123-456-789</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="forbuttons">
+    <br>
+
+    <div class="forbuttons" fxLayout="row" fxLayoutAlign="center center">
         <button type="submit" [disabled]="form.invalid"
         mat-raised-button color="primary">Submit</button>
         <button type="reset"

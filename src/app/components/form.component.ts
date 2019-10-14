@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   minAge = 18;
   maxDate = moment().subtract(this.minAge, 'years');
 
-  // Placeholder while using GET
+  // Placeholder while GET is used
   countryList: COUNTRIES[] = [
     {
       name: 'Afghanistan',

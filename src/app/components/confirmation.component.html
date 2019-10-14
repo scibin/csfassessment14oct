@@ -1,48 +1,44 @@
-<h3>Thank you for registering!</h3>
-
-<span>Your registration details:</span>
-<br><br>
-
-<div class='name'>
-    <span>Your name: </span>
-    <span>{{ formData.name }}</span>
+<div class='headers'>
+    <br>
+    <h3>Thank you for registering!</h3>
+    <span>Your registration details:</span>
 </div>
-<br>
 
-<div class='email'>
-    <span>Your email: </span>
-    <span>{{ formData.email }}</span>
+<div class="container">
+    <table class="table table-hover">
+        <tbody>
+        <tr>  
+            <td><span>Your name: </span></td>
+            <td><span>{{ formData.name }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your email: </span></td>
+            <td><span>{{ formData.email }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your gender: </span></td>
+            <td><span>{{ formData.gender }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your date of birth: </span></td>
+            <td><span>{{ formData.dateOfBirth.format('MMMM Do YYYY') }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your country: </span></td>
+            <td><span>{{ formData.country }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your address: </span></td>
+            <td><span>{{ formData.address }}</span></td>
+        </tr>
+        <tr>  
+            <td><span>Your contact number: </span></td>
+            <td><span>{{ formData.contactNumber }}</span></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<br>
 
-<div class='gender'>
-    <span>Your gender: </span>
-    <span>{{ formData.gender }}</span>
-</div>
-<br>
-
-<div class='dateOfBirth'>
-    <span>Your date of birth: </span>
-    <span>{{ formData.dateOfBirth.format('MMMM Do YYYY') }}</span>
-</div>
-<br>
-
-<div class='country'>
-    <span>Your country: </span>
-    <span>{{ formData.country }}</span>
-</div>
-<br>
-
-<div class='address'>
-    <span>Your address: </span>
-    <span>{{ formData.address }}</span>
-</div>
-<br>
-
-<div class='contactNumber'>
-    <span>Your contact number: </span>
-    <span>{{ formData.contactNumber }}</span>
-</div>
 <br>
 
 <div class='backButton' fxLayout="row"  fxLayoutAlign="start center">
